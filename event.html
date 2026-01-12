@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل فعاليات المدينة | تفاصيل الفعالية</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- خطوط Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف CSS المخصص -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-calendar-alt me-2"></i>
+                <span class="fw-bold">دليل فعاليات المدينة</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">الفعاليات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الدليل</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="events.html" class="btn btn-primary">
+                        <i class="fas fa-search me-1"></i> ابحث عن فعالية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="container mt-5 pt-4">
+        <!-- مسار التنقل -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                <li class="breadcrumb-item"><a href="events.html">الفعاليات</a></li>
+                <li class="breadcrumb-item active" aria-current="page">تفاصيل الفعالية</li>
+            </ol>
+        </nav>
+
+        <!-- قسم تفاصيل الفعالية -->
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- صورة الفعالية -->
+                <div class="card shadow-sm mb-4">
+                    <img src="assets/img/event1.jpg" class="card-img-top rounded-top" alt="مهرجان الربيع الثقافي" id="eventImage">
+                </div>
+                
+                <!-- معلومات الفعالية -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="badge bg-primary mb-2" id="eventCategory">ثقافة</span>
+                                <h1 class="h2 fw-bold mb-2" id="eventTitle">مهرجان الربيع الثقافي</h1>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-primary" id="shareBtn">
+                                    <i class="fas fa-share-alt me-1"></i> مشاركة
+                                </button>
+                                <button class="btn btn-primary" id="addToCalendarBtn">
+                                    <i class="fas fa-calendar-plus me-1"></i> أضف للتقويم
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">التاريخ والوقت</h6>
+                                        <p class="text-muted mb-0" id="eventDate">15-20 مايو 2023، من 4:00 مساءً إلى 10:00 مساءً</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">الموقع</h6>
+                                        <p class="text-muted mb-0" id="eventLocation">حديقة المدينة المركزية، شارع الثقافة</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-ticket-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">نوع التذكرة</h6>
+                                        <p class="text-muted mb-0" id="eventTicket">مجاني - تسجيل مسبق</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">الفئة المستهدفة</h6>
+                                        <p class="text-muted mb-0" id="eventAudience">جميع الفئات العمرية</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- وصف الفعالية -->
+                        <div class="mb-5">
+                            <h4 class="mb-3">عن الفعالية</h4>
+                            <div id="eventDescription">
+                                <p>مهرجان الربيع الثقافي هو احتفالية سنوية تجمع أبرز الفعاليات الثقافية والفنية في المدينة. يستمر المهرجان لمدة 6 أيام، ويقدم مجموعة متنوعة من الأنشطة التي تتناسب مع جميع الأذواق والأعمار.</p>
+                                <p>يتضمن المهرجان هذا العام:</p>
+                                <ul>
+                                    <li>عروض مسرحية محلية ودولية</li>
+                                    <li>حفلات موسيقية مع فرق وفنانين محليين</li>
+                                    <li>معارض فنية تشكيلية وتصوير فوتوغرافي</li>
+                                    <li>جلسات شعرية وأدبية</li>
+                                    <li>ورش عمل تفاعلية للأطفال والعائلات</li>
+                                    <li>أرطع طعام ومشروبات من مطابخ عالمية</li>
+                                </ul>
+                                <p>يشارك في المهرجان هذا العام أكثر من 100 فنان وعارض من مختلف المجالات الثقافية، مما يجعله الحدث الثقافي الأبرز في المدينة هذا الربيع.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- خريطة الموقع -->
+                        <div class="mb-5">
+                            <h4 class="mb-3">موقع الفعالية</h4>
+                            <div class="map-container rounded">
+                                <div class="map-placeholder d-flex align-items-center justify-content-center">
+                                    <div class="text-center">
+                                        <i class="fas fa-map-marked-alt fa-3x text-muted mb-3"></i>
+                                        <p class="text-muted mb-0">حديقة المدينة المركزية، شارع الثقافة</p>
+                                        <a href="#" class="btn btn-sm btn-outline-primary mt-2">
+                                            <i class="fas fa-directions me-1"></i> افتح في خرائط جوجل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- منظم الفعالية -->
+                        <div class="mb-4">
+                            <h4 class="mb-3">المنظم</h4>
+                            <div class="d-flex align-items-center">
+                                <div class="organizer-logo me-3">
+                                    <i class="fas fa-landmark fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0" id="eventOrganizer">وزارة الثقافة - إدارة الفعاليات</h5>
+                                    <p class="text-muted mb-0">منظمة غير ربحية تعنى بدعم المشهد الثقافي في المدينة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الشريط الجانبي -->
+            <div class="col-lg-4">
+                <!-- تسجيل الحضور -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-3">هل ترغب في حضور هذه الفعالية؟</h5>
+                        <p class="text-muted mb-4">سجل حضورك الآن واحصل على تذكرة دخول مجانية</p>
+                        <button class="btn btn-primary btn-lg w-100 mb-3" data-bs-toggle="modal" data-bs-target="#registerModal">
+                            <i class="fas fa-user-plus me-2"></i> سجل حضورك الآن
+                        </button>
+                        <p class="text-muted small">عدد المسجلين حتى الآن: <span class="fw-bold" id="attendeeCount">245</span> شخص</p>
+                    </div>
+                </div>
+                
+                <!-- فعاليات ذات صلة -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">فعاليات ذات صلة</h5>
+                        <div id="relatedEvents">
+                            <!-- سيتم ملء هذا القسم بواسطة JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- معلومات إضافية -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">معلومات إضافية</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-info-circle text-primary me-2"></i> يرجى الحضور قبل 30 دقيقة من بدء الفعالية</li>
+                            <li class="mb-2"><i class="fas fa-car text-primary me-2"></i> مواقف سيارات مجانية متاحة</li>
+                            <li class="mb-2"><i class="fas fa-wheelchair text-primary me-2"></i> الموقع مجهز لذوي الاحتياجات الخاصة</li>
+                            <li class="mb-2"><i class="fas fa-utensils text-primary me-2"></i> توجد أماكن طعام ومشروبات داخل الموقع</li>
+                            <li><i class="fas fa-camera text-primary me-2"></i> مسموح بالتصوير الشخصي فقط</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- نافذة تسجيل الحضور -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">تسجيل حضور الفعالية</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm">
+                        <div class="mb-3">
+                            <label for="regName" class="form-label">الاسم الكامل <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="regName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="regEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regPhone" class="form-label">رقم الهاتف</label>
+                            <input type="tel" class="form-control" id="regPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="regGuests" class="form-label">عدد الضيوف المرافقين</label>
+                            <select class="form-select" id="regGuests">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 أو أكثر</option>
+                            </select>
+                        </div>
+                        <div class="alert alert-info">
+                            <small><i class="fas fa-info-circle me-1"></i> سيتم إرسال تأكيد الحجز إلى بريدك الإلكتروني خلال 24 ساعة.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" id="submitRegistrationBtn">تأكيد التسجيل</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- التذييل -->
+    <footer class="footer mt-5 pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-calendar-alt me-2"></i> دليل فعاليات المدينة
+                    </h5>
+                    <p class="text-muted">منصة شاملة للفعاليات الثقافية، الرياضية، الموسيقية والعائلية في المدينة. نهدف إلى ربط المجتمع بأفضل الأنشطة والفعاليات.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-muted">الفعاليات</a></li>
+                        <li><a href="about.html" class="text-muted">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-muted">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">معلومات التواصل</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> شارع المدينة، الحي المركزي</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 0123-456-789</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@cityevents.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">© 2023 دليل فعاليات المدينة. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted me-3">سياسة الخصوصية</a>
+                    <a href="#" class="text-muted">شروط الاستخدام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- ملف JavaScript المخصص -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // تحميل تفاصيل الفعالية عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadEventDetails();
+            loadRelatedEvents();
+            
+            // إضافة للتقويم
+            document.getElementById('addToCalendarBtn').addEventListener('click', function() {
+                addToCalendar();
+            });
+            
+            // مشاركة الفعالية
+            document.getElementById('shareBtn').addEventListener('click', function() {
+                shareEvent();
+            });
+            
+            // تسجيل الحضور
+            document.getElementById('submitRegistrationBtn').addEventListener('click', function() {
+                submitRegistration();
+            });
+        });
+    </script>
+</body>
+</html>

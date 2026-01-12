@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل فعاليات المدينة | الرئيسية</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- خطوط Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف CSS المخصص -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-calendar-alt me-2"></i>
+                <span class="fw-bold">دليل فعاليات المدينة</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">الفعاليات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الدليل</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="events.html" class="btn btn-primary">
+                        <i class="fas fa-search me-1"></i> ابحث عن فعالية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="container mt-5 pt-4">
+        <!-- قسم الهيرو -->
+        <section class="hero-section text-center py-5 mb-5 rounded">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">اكتشف أفضل الفعاليات في مدينتك</h1>
+                    <p class="lead mb-4">دليلك الشامل لفعاليات الثقافة، الرياضة، الموسيقى، والعائلة القادمة في المدينة. اكتشف وشارك وانظم إلى الأحداث المميزة!</p>
+                    <a href="events.html" class="btn btn-primary btn-lg px-4">
+                        <i class="fas fa-calendar-check me-2"></i> استعرض الفعاليات
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم سلايدر الفعاليات البارزة -->
+        <section class="featured-events mb-5">
+            <h2 class="section-title mb-4">فعاليات بارزة هذا الأسبوع</h2>
+            <div class="slider-container">
+                <div id="featuredSlider" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#featuredSlider" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#featuredSlider" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#featuredSlider" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="p-4">
+                                        <span class="badge bg-primary mb-2">ثقافة</span>
+                                        <h3 class="fw-bold">مهرجان الربيع الثقافي</h3>
+                                        <p class="text-muted"><i class="fas fa-calendar-alt me-2"></i> 15-20 مايو 2023</p>
+                                        <p class="text-muted"><i class="fas fa-map-marker-alt me-2"></i> حديقة المدينة المركزية</p>
+                                        <p>مهرجان سنوي يجمع فنون الأدب والموسيقى والرسم بمشاركة فنانين محليين ودوليين. فعاليات متنوعة للكبار والصغار.</p>
+                                        <a href="event.html" class="btn btn-outline-primary">تفاصيل الفعالية</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="assets/img/event1.jpg" class="d-block w-100 rounded" alt="مهرجان الربيع الثقافي">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="p-4">
+                                        <span class="badge bg-success mb-2">رياضة</span>
+                                        <h3 class="fw-bold">ماراثون المدينة الخيري</h3>
+                                        <p class="text-muted"><i class="fas fa-calendar-alt me-2"></i> 22 مايو 2023</p>
+                                        <p class="text-muted"><i class="fas fa-map-marker-alt me-2"></i> شاطئ المدينة</p>
+                                        <p>ماراثون خيري لمسافة 10 كم و5 كم بمشاركة آلاف العدائين. تذهب عائدات التسجيل لدعم مشاريع تعليمية.</p>
+                                        <a href="event.html" class="btn btn-outline-primary">تفاصيل الفعالية</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="assets/img/event2.jpg" class="d-block w-100 rounded" alt="ماراثون المدينة الخيري">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="p-4">
+                                        <span class="badge bg-warning mb-2">موسيقى</span>
+                                        <h3 class="fw-bold">حفلة أوركسترا المدينة</h3>
+                                        <p class="text-muted"><i class="fas fa-calendar-alt me-2"></i> 18 مايو 2023</p>
+                                        <p class="text-muted"><i class="fas fa-map-marker-alt me-2"></i> مسرح المدينة الوطني</p>
+                                        <p>أمسية موسيقية مع أوركسترا المدينة السيمفونية بقيادة المايسترو الشهير. ستقدم مقطوعات عالمية ووطنية.</p>
+                                        <a href="event.html" class="btn btn-outline-primary">تفاصيل الفعالية</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="assets/img/event3.jpg" class="d-block w-100 rounded" alt="حفلة أوركسترا المدينة">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#featuredSlider" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">السابق</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#featuredSlider" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">التالي</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التصنيفات السريعة -->
+        <section class="quick-categories mb-5">
+            <h2 class="section-title mb-4">تصفح حسب التصنيف</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <a href="events.html?category=culture" class="category-card text-center d-block p-4 rounded">
+                        <div class="category-icon mb-3">
+                            <i class="fas fa-theater-masks fa-3x"></i>
+                        </div>
+                        <h4 class="fw-bold">ثقافة</h4>
+                        <p class="text-muted">معارض، مسرح، أدب</p>
+                        <span class="badge bg-primary">12 فعالية</span>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <a href="events.html?category=sports" class="category-card text-center d-block p-4 rounded">
+                        <div class="category-icon mb-3">
+                            <i class="fas fa-futbol fa-3x"></i>
+                        </div>
+                        <h4 class="fw-bold">رياضة</h4>
+                        <p class="text-muted">ماراثون، مباريات، تدريبات</p>
+                        <span class="badge bg-success">8 فعاليات</span>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <a href="events.html?category=music" class="category-card text-center d-block p-4 rounded">
+                        <div class="category-icon mb-3">
+                            <i class="fas fa-music fa-3x"></i>
+                        </div>
+                        <h4 class="fw-bold">موسيقى</h4>
+                        <p class="text-muted">حفلات، مهرجانات، أمسيات</p>
+                        <span class="badge bg-warning">15 فعالية</span>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <a href="events.html?category=family" class="category-card text-center d-block p-4 rounded">
+                        <div class="category-icon mb-3">
+                            <i class="fas fa-users fa-3x"></i>
+                        </div>
+                        <h4 class="fw-bold">عائلي</h4>
+                        <p class="text-muted">أنشطة، ورش عمل، ترفيه</p>
+                        <span class="badge bg-info">10 فعاليات</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم أحدث الفعاليات -->
+        <section class="latest-events">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="section-title mb-0">أحدث الفعاليات</h2>
+                <a href="events.html" class="btn btn-outline-primary">عرض الكل <i class="fas fa-arrow-left ms-1"></i></a>
+            </div>
+            <div class="row" id="latestEvents">
+                <!-- سيتم ملء هذا القسم بواسطة JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="footer mt-5 pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-calendar-alt me-2"></i> دليل فعاليات المدينة
+                    </h5>
+                    <p class="text-muted">منصة شاملة للفعاليات الثقافية، الرياضية، الموسيقية والعائلية في المدينة. نهدف إلى ربط المجتمع بأفضل الأنشطة والفعاليات.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-muted">الفعاليات</a></li>
+                        <li><a href="about.html" class="text-muted">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-muted">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">معلومات التواصل</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> شارع المدينة، الحي المركزي</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 0123-456-789</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@cityevents.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">© 2023 دليل فعاليات المدينة. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted me-3">سياسة الخصوصية</a>
+                    <a href="#" class="text-muted">شروط الاستخدام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- ملف JavaScript المخصص -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // تحميل أحدث الفعاليات عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLatestEvents();
+        });
+    </script>
+</body>
+</html>

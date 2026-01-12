@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل فعاليات المدينة | الفعاليات</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- خطوط Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف CSS المخصص -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-calendar-alt me-2"></i>
+                <span class="fw-bold">دليل فعاليات المدينة</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="events.html">الفعاليات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الدليل</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="events.html" class="btn btn-primary">
+                        <i class="fas fa-search me-1"></i> ابحث عن فعالية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="container mt-5 pt-4">
+        <!-- قسم رأس الصفحة -->
+        <section class="page-header mb-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="display-5 fw-bold mb-3">فعاليات المدينة</h1>
+                    <p class="lead text-muted">استعرض جميع الفعاليات القادمة في المدينة. يمكنك البحث والتصفية حسب التاريخ، التصنيف أو الموقع.</p>
+                </div>
+                <div class="col-md-4 d-flex align-items-center justify-content-md-end">
+                    <a href="#addEventModal" class="btn btn-success" data-bs-toggle="modal">
+                        <i class="fas fa-plus me-1"></i> أضف فعالية
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم أدوات البحث والتصفية -->
+        <section class="filter-section mb-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">بحث وتصفية الفعاليات</h5>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="searchInput" class="form-label">البحث في الفعاليات</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="searchInput" placeholder="اكتب كلمة للبحث...">
+                                <button class="btn btn-outline-primary" type="button" id="searchBtn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="categoryFilter" class="form-label">التصنيف</label>
+                            <select class="form-select" id="categoryFilter">
+                                <option value="all">جميع التصنيفات</option>
+                                <option value="culture">ثقافة</option>
+                                <option value="sports">رياضة</option>
+                                <option value="music">موسيقى</option>
+                                <option value="family">عائلي</option>
+                                <option value="education">تعليم</option>
+                                <option value="business">أعمال</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="dateFilter" class="form-label">التاريخ</label>
+                            <select class="form-select" id="dateFilter">
+                                <option value="all">جميع التواريخ</option>
+                                <option value="today">اليوم</option>
+                                <option value="week">هذا الأسبوع</option>
+                                <option value="month">هذا الشهر</option>
+                                <option value="upcoming">القادمة</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-3 d-flex align-items-end">
+                            <button class="btn btn-primary w-100" id="applyFilterBtn">تطبيق الفلترة</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="d-flex flex-wrap gap-2" id="activeFilters">
+                                <!-- سيتم عرض الفلاتر النشطة هنا -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم عرض الفعاليات -->
+        <section class="events-listing">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="section-title mb-0">جميع الفعاليات</h2>
+                <div class="text-muted" id="eventsCount">عرض <span id="count">0</span> فعالية</div>
+            </div>
+            
+            <div class="row" id="eventsContainer">
+                <!-- سيتم ملء هذا القسم بواسطة JavaScript -->
+            </div>
+            
+            <!-- زر تحميل المزيد -->
+            <div class="text-center mt-5" id="loadMoreContainer">
+                <button class="btn btn-outline-primary px-5" id="loadMoreBtn">
+                    <i class="fas fa-sync-alt me-2"></i> تحميل المزيد من الفعاليات
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- نافذة إضافة فعالية -->
+    <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEventModalLabel">إضافة فعالية جديدة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">يمكنك إضافة فعاليتك لتظهر في دليل فعاليات المدينة. سيتم مراجعة الفعالية قبل النشر.</p>
+                    <form id="addEventForm">
+                        <div class="mb-3">
+                            <label for="eventName" class="form-label">اسم الفعالية <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="eventName" required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="eventCategory" class="form-label">التصنيف <span class="text-danger">*</span></label>
+                                <select class="form-select" id="eventCategory" required>
+                                    <option value="">اختر تصنيفًا</option>
+                                    <option value="culture">ثقافة</option>
+                                    <option value="sports">رياضة</option>
+                                    <option value="music">موسيقى</option>
+                                    <option value="family">عائلي</option>
+                                    <option value="education">تعليم</option>
+                                    <option value="business">أعمال</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventDate" class="form-label">التاريخ <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="eventDate" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="eventLocation" class="form-label">الموقع <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="eventLocation" placeholder="أدخل مكان الفعالية" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventOrganizer" class="form-label">المنظم</label>
+                                <input type="text" class="form-control" id="eventOrganizer" placeholder="اسم المنظم أو المؤسسة">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventDescription" class="form-label">وصف الفعالية <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="eventDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventImage" class="form-label">صورة الفعالية (اختياري)</label>
+                            <input type="file" class="form-control" id="eventImage" accept="image/*">
+                        </div>
+                        <div class="alert alert-info">
+                            <small><i class="fas fa-info-circle me-1"></i> بعد إرسال الفعالية، ستتم مراجعتها من قبل فريقنا قبل النشر. قد يستغرق ذلك حتى 48 ساعة.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-success" id="submitEventBtn">إرسال الفعالية</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- التذييل -->
+    <footer class="footer mt-5 pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-calendar-alt me-2"></i> دليل فعاليات المدينة
+                    </h5>
+                    <p class="text-muted">منصة شاملة للفعاليات الثقافية، الرياضية، الموسيقية والعائلية في المدينة. نهدف إلى ربط المجتمع بأفضل الأنشطة والفعاليات.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-muted">الفعاليات</a></li>
+                        <li><a href="about.html" class="text-muted">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-muted">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">معلومات التواصل</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> شارع المدينة، الحي المركزي</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 0123-456-789</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@cityevents.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">© 2023 دليل فعاليات المدينة. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted me-3">سياسة الخصوصية</a>
+                    <a href="#" class="text-muted">شروط الاستخدام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- ملف JavaScript المخصص -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // تحميل الفعاليات عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadEvents();
+            
+            // إضافة فعالية جديدة
+            document.getElementById('submitEventBtn').addEventListener('click', function() {
+                submitNewEvent();
+            });
+            
+            // تطبيق الفلاتر
+            document.getElementById('applyFilterBtn').addEventListener('click', function() {
+                applyFilters();
+            });
+            
+            // تحميل المزيد من الفعاليات
+            document.getElementById('loadMoreBtn').addEventListener('click', function() {
+                loadMoreEvents();
+            });
+        });
+    </script>
+</body>
+</html>

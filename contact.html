@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل فعاليات المدينة | اتصل بنا</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- خطوط Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف CSS المخصص -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-calendar-alt me-2"></i>
+                <span class="fw-bold">دليل فعاليات المدينة</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html">الفعاليات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الدليل</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="events.html" class="btn btn-primary">
+                        <i class="fas fa-search me-1"></i> ابحث عن فعالية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="container mt-5 pt-4">
+        <!-- قسم الهيرو -->
+        <section class="page-header text-center mb-5">
+            <h1 class="display-5 fw-bold mb-3">اتصل بنا</h1>
+            <p class="lead text-muted mb-0">نحن هنا للإجابة على استفساراتكم واستقبال ملاحظاتكم ومقترحاتكم</p>
+        </section>
+
+        <div class="row">
+            <!-- قسم نموذج الاتصال -->
+            <div class="col-lg-8 mb-5">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">أرسل لنا رسالة</h3>
+                        <p class="text-muted mb-4">يرجى ملء النموذج أدناه وسنرد عليكم في أقرب وقت ممكن.</p>
+                        
+                        <!-- رسالة النجاح/الخطأ -->
+                        <div id="formAlert" class="alert d-none" role="alert"></div>
+                        
+                        <form id="contactForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="contactName" class="form-label">الاسم الكامل <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="contactName" required>
+                                    <div class="invalid-feedback" id="nameError">يرجى إدخال الاسم الكامل</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contactEmail" class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="contactEmail" required>
+                                    <div class="invalid-feedback" id="emailError">يرجى إدخال بريد إلكتروني صحيح</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactSubject" class="form-label">الموضوع <span class="text-danger">*</span></label>
+                                <select class="form-select" id="contactSubject" required>
+                                    <option value="" selected disabled>اختر موضوع الرسالة</option>
+                                    <option value="general">استفسار عام</option>
+                                    <option value="event">استفسار عن فعالية</option>
+                                    <option value="addEvent">إضافة فعالية جديدة</option>
+                                    <option value="partnership">شراكة وتعاون</option>
+                                    <option value="technical">مشكلة فنية</option>
+                                    <option value="feedback">ملاحظات ومقترحات</option>
+                                    <option value="other">موضوع آخر</option>
+                                </select>
+                                <div class="invalid-feedback" id="subjectError">يرجى اختيار موضوع الرسالة</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactMessage" class="form-label">الرسالة <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="contactMessage" rows="6" required></textarea>
+                                <div class="invalid-feedback" id="messageError">يرجى كتابة رسالتك</div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="contactNewsletter">
+                                    <label class="form-check-label" for="contactNewsletter">
+                                        أرغب في تلقي آخر التحديثات حول الفعاليات القادمة
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg px-5" id="submitBtn">
+                                <i class="fas fa-paper-plane me-2"></i> إرسال الرسالة
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم معلومات التواصل -->
+            <div class="col-lg-4 mb-5">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">معلومات التواصل</h3>
+                        
+                        <div class="contact-info mb-5">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="contact-icon me-3">
+                                    <i class="fas fa-map-marker-alt fa-lg text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">العنوان</h5>
+                                    <p class="text-muted mb-0">شارع المدينة، الحي المركزي<br>صندوق بريد 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="contact-icon me-3">
+                                    <i class="fas fa-phone fa-lg text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">الهاتف</h5>
+                                    <p class="text-muted mb-0">0123-456-789<br>السبت - الخميس: 9 صباحاً - 5 مساءً</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="contact-icon me-3">
+                                    <i class="fas fa-envelope fa-lg text-warning"></i>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">البريد الإلكتروني</h5>
+                                    <p class="text-muted mb-0">info@cityevents.com<br>support@cityevents.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start">
+                                <div class="contact-icon me-3">
+                                    <i class="fas fa-clock fa-lg text-info"></i>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold mb-1">ساعات العمل</h5>
+                                    <p class="text-muted mb-0">السبت - الخميس: 9 صباحاً - 5 مساءً<br>الجمعة: إجازة</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-section">
+                            <h5 class="h6 fw-bold mb-3">تابعنا على وسائل التواصل</h5>
+                            <div class="social-links d-flex gap-3">
+                                <a href="#" class="social-link twitter">
+                                    <i class="fab fa-twitter fa-lg"></i>
+                                </a>
+                                <a href="#" class="social-link facebook">
+                                    <i class="fab fa-facebook-f fa-lg"></i>
+                                </a>
+                                <a href="#" class="social-link instagram">
+                                    <i class="fab fa-instagram fa-lg"></i>
+                                </a>
+                                <a href="#" class="social-link youtube">
+                                    <i class="fab fa-youtube fa-lg"></i>
+                                </a>
+                                <a href="#" class="social-link linkedin">
+                                    <i class="fab fa-linkedin-in fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الأسئلة الشائعة -->
+        <section class="faq-section mb-5">
+            <h2 class="section-title text-center mb-5">الأسئلة الشائعة</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqOne">
+                            كيف يمكنني إضافة فعالية إلى الدليل؟
+                        </button>
+                    </h2>
+                    <div id="collapseFaqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            يمكنك إضافة فعالية من خلال صفحة الفعاليات والنقر على زر "أضف فعالية"، أو عبر نموذج الاتصال باختيار موضوع "إضافة فعالية جديدة". سيقوم فريقنا بمراجعة الفعالية وإضافتها إلى الدليل خلال 1-3 أيام عمل.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqTwo">
+                            هل نشر الفعاليات في الدليل مجاني؟
+                        </button>
+                    </h2>
+                    <div id="collapseFaqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نعم، نشر الفعاليات في الدليل مجاني تماماً للمنظمين غير التجاريين. بالنسبة للفعاليات التجارية، قد تختلف الشروط حسب طبيعة الفعالية. يمكنك التواصل معنا لمزيد من التفاصيل.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqThree">
+                            كيف يمكنني تعديل أو إلغاء فعالية قمت بإضافتها؟
+                        </button>
+                    </h2>
+                    <div id="collapseFaqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            يمكنك التواصل معنا عبر البريد الإلكتروني support@cityevents.com أو عبر نموذج الاتصال بذكر تفاصيل الفعالية والتعديلات المطلوبة. سيتم تنفيذ التعديلات خلال 24 ساعة من استلام الطلب.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqFour">
+                            ما هي مدة الرد على استفسارات التواصل؟
+                        </button>
+                    </h2>
+                    <div id="collapseFaqFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نحن نعمل على الرد على جميع الاستفسارات خلال 24-48 ساعة خلال أيام العمل (السبت - الخميس). في حالات الطوارئ، يمكنك الاتصال بنا على رقم الهاتف المباشر.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="footer mt-5 pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-calendar-alt me-2"></i> دليل فعاليات المدينة
+                    </h5>
+                    <p class="text-muted">منصة شاملة للفعاليات الثقافية، الرياضية، الموسيقية والعائلية في المدينة. نهدف إلى ربط المجتمع بأفضل الأنشطة والفعاليات.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted">الرئيسية</a></li>
+                        <li><a href="events.html" class="text-muted">الفعاليات</a></li>
+                        <li><a href="about.html" class="text-muted">عن الدليل</a></li>
+                        <li><a href="contact.html" class="text-muted">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">معلومات التواصل</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> شارع المدينة، الحي المركزي</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 0123-456-789</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@cityevents.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">© 2023 دليل فعاليات المدينة. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted me-3">سياسة الخصوصية</a>
+                    <a href="#" class="text-muted">شروط الاستخدام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- ملف JavaScript المخصص -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // معالجة نموذج الاتصال
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formAlert = document.getElementById('formAlert');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // التحقق من الحقول المطلوبة
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const subject = document.getElementById('contactSubject').value;
+                const message = document.getElementById('contactMessage').value.trim();
+                
+                let isValid = true;
+                
+                // التحقق من الاسم
+                if (name === '') {
+                    document.getElementById('contactName').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('contactName').classList.remove('is-invalid');
+                }
+                
+                // التحقق من البريد الإلكتروني
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email === '' || !emailPattern.test(email)) {
+                    document.getElementById('contactEmail').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('contactEmail').classList.remove('is-invalid');
+                }
+                
+                // التحقق من الموضوع
+                if (!subject) {
+                    document.getElementById('contactSubject').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('contactSubject').classList.remove('is-invalid');
+                }
+                
+                // التحقق من الرسالة
+                if (message === '') {
+                    document.getElementById('contactMessage').classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('contactMessage').classList.remove('is-invalid');
+                }
+                
+                if (isValid) {
+                    // إظهار حالة التحميل
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> جاري الإرسال...';
+                    submitBtn.disabled = true;
+                    
+                    // محاكاة إرسال النموذج (في الواقع سيتم إرساله إلى الخادم)
+                    setTimeout(function() {
+                        // إظهار رسالة النجاح
+                        formAlert.className = 'alert alert-success';
+                        formAlert.textContent = 'تم إرسال رسالتك بنجاح! سنقوم بالرد عليك في أقرب وقت ممكن.';
+                        formAlert.classList.remove('d-none');
+                        
+                        // إعادة تعيين النموذج
+                        contactForm.reset();
+                        
+                        // إعادة تعيين الزر
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i> إرسال الرسالة';
+                        submitBtn.disabled = false;
+                        
+                        // إخفاء الرسالة بعد 5 ثواني
+                        setTimeout(function() {
+                            formAlert.classList.add('d-none');
+                        }, 5000);
+                    }, 1500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
