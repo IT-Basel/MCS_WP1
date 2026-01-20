@@ -1,6 +1,7 @@
 /**
  * ملف JavaScript الرئيسي لدليل فعاليات المدينة
  * يحتوي على جميع الوظائف المطلوبة للموقع
+ * تم التعديل لحل مشاكل الروابط
  */
 
 // بيانات وهمية للفعاليات
@@ -149,6 +150,7 @@ function loadLatestEvents() {
                     <p class="card-text text-muted">${event.description.substring(0, 100)}...</p>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i> ${event.location}</small>
+                        <!-- تم إضافة id هنا -->
                         <a href="event.html?id=${event.id}" class="btn btn-outline-primary btn-sm">تفاصيل</a>
                     </div>
                 </div>
@@ -188,6 +190,7 @@ function loadEvents(filteredEvents = null) {
                     <p class="card-text text-muted">${event.description.substring(0, 80)}...</p>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i> ${event.location}</small>
+                        <!-- تم إضافة id هنا -->
                         <a href="event.html?id=${event.id}" class="btn btn-outline-primary btn-sm">تفاصيل</a>
                     </div>
                 </div>
@@ -256,7 +259,8 @@ function applyFilters() {
         filteredEvents = filteredEvents.filter(event => 
             event.title.toLowerCase().includes(searchInput) || 
             event.description.toLowerCase().includes(searchInput) ||
-            event.location.toLowerCase().includes(searchInput)
+            event.location.toLowerCase().includes(searchInput) ||
+            event.organizer.toLowerCase().includes(searchInput)
         );
     }
     
@@ -323,7 +327,20 @@ function removeFilter(filterType) {
 function loadMoreEvents() {
     // في هذه النسخة البسيطة، نعيد تحميل جميع الفعاليات
     // في تطبيق حقيقي، سنقوم بجلب المزيد من الخادم
-    alert('سيتم تحميل المزيد من الفعاليات في النسخة الكاملة من التطبيق');
+    const currentCount = parseInt(document.getElementById('count').textContent);
+    const allEvents = eventsData.length;
+    
+    if (currentCount < allEvents) {
+        // عرض 3 فعاليات إضافية
+        const newCount = Math.min(currentCount + 3, allEvents);
+        const moreEvents = eventsData.slice(0, newCount);
+        loadEvents(moreEvents);
+        
+        if (newCount >= allEvents) {
+            document.getElementById('loadMoreBtn').textContent = 'تم عرض جميع الفعاليات';
+            document.getElementById('loadMoreBtn').disabled = true;
+        }
+    }
 }
 
 /**
@@ -332,40 +349,106 @@ function loadMoreEvents() {
 function loadEventDetails() {
     // الحصول على معرّف الفعالية من URL
     const urlParams = new URLSearchParams(window.location.search);
-    const eventId = urlParams.get('id') || 1;
+    let eventId = urlParams.get('id');
+    
+    // إذا لم يكن هناك id في الرابط، استخدم القيمة الافتراضية 1
+    if (!eventId) {
+        eventId = 1;
+        console.log('لم يتم تحديد معرّف فعالية، عرض الفعالية الأولى');
+    }
     
     // البحث عن الفعالية في البيانات
-    const event = eventsData.find(e => e.id == eventId) || eventsData[0];
+    const event = eventsData.find(e => e.id == eventId);
+    
+    if (!event) {
+        // إذا لم توجد الفعالية، عرض رسالة
+        const main = document.querySelector('main');
+        if (main) {
+            main.innerHTML = `
+                <div class="alert alert-danger mt-5">
+                    <h4>الفعالية غير موجودة</h4>
+                    <p>عذراً، الفعالية التي تبحث عنها غير موجودة.</p>
+                    <a href="events.html" class="btn btn-primary">عودة إلى الفعاليات</a>
+                </div>
+            `;
+        }
+        return;
+    }
     
     // تحديث عناصر الصفحة
+    updateEventDetails(event);
+}
+
+/**
+ * تحديث عناصر صفحة تفاصيل الفعالية
+ */
+function updateEventDetails(event) {
+    const categoryName = categoryNames[event.category] || event.category;
+    const categoryColor = categoryColors[event.category] || 'primary';
+    
+    // تحديث العنوان
     if (document.getElementById('eventTitle')) {
         document.getElementById('eventTitle').textContent = event.title;
+        document.title = `دليل فعاليات المدينة | ${event.title}`;
     }
     
+    // تحديث التصنيف
     if (document.getElementById('eventCategory')) {
-        const categoryName = categoryNames[event.category] || event.category;
         document.getElementById('eventCategory').textContent = categoryName;
+        document.getElementById('eventCategory').className = `badge bg-${categoryColor} mb-2`;
     }
     
+    // تحديث التاريخ
     if (document.getElementById('eventDate')) {
         let dateText = formatDate(event.date);
         if (event.endDate) {
             dateText += ` إلى ${formatDate(event.endDate)}`;
         }
+        // إضافة وقت افتراضي
+        dateText += '، من 4:00 مساءً إلى 10:00 مساءً';
         document.getElementById('eventDate').textContent = dateText;
     }
     
+    // تحديث الموقع
     if (document.getElementById('eventLocation')) {
         document.getElementById('eventLocation').textContent = event.location;
     }
     
-    if (document.getElementById('eventOrganizer')) {
-        document.getElementById('eventOrganizer').textContent = event.organizer;
+    // تحديث خريطة الموقع
+    if (document.getElementById('mapLocation')) {
+        document.getElementById('mapLocation').textContent = event.location;
     }
     
+    // تحديث المنظم
+    if (document.getElementById('eventOrganizer')) {
+        document.getElementById('eventOrganizer').textContent = event.organizer || 'غير محدد';
+    }
+    
+    // تحديث الصورة
     if (document.getElementById('eventImage')) {
         document.getElementById('eventImage').src = `assets/img/${event.image}`;
         document.getElementById('eventImage').alt = event.title;
+    }
+    
+    // تحديث الوصف
+    const descElement = document.getElementById('eventDescription');
+    if (descElement) {
+        descElement.innerHTML = `
+            <p>${event.description}</p>
+            ${event.endDate ? `<p><strong>مدة الفعالية:</strong> من ${formatDate(event.date)} إلى ${formatDate(event.endDate)}</p>` : ''}
+            <p><strong>الموقع:</strong> ${event.location}</p>
+            ${event.organizer ? `<p><strong>المنظم:</strong> ${event.organizer}</p>` : ''}
+            <p>يتضمن المهرجان هذا العام:</p>
+            <ul>
+                <li>عروض مسرحية محلية ودولية</li>
+                <li>حفلات موسيقية مع فرق وفنانين محليين</li>
+                <li>معارض فنية تشكيلية وتصوير فوتوغرافي</li>
+                <li>جلسات شعرية وأدبية</li>
+                <li>ورش عمل تفاعلية للأطفال والعائلات</li>
+                <li>أرطع طعام ومشروبات من مطابخ عالمية</li>
+            </ul>
+            <p>يشارك في المهرجان هذا العام أكثر من 100 فنان وعارض من مختلف المجالات الثقافية، مما يجعله الحدث الثقافي الأبرز في المدينة هذا الربيع.</p>
+        `;
     }
 }
 
@@ -414,6 +497,7 @@ function displayRelatedEvents(events, container) {
                 <div>
                     <h6 class="fw-bold mb-1">${event.title}</h6>
                     <p class="text-muted small mb-1"><i class="fas fa-calendar-alt me-1"></i> ${formatDate(event.date)}</p>
+                    <p class="text-muted small mb-2"><i class="fas fa-map-marker-alt me-1"></i> ${event.location}</p>
                     <a href="event.html?id=${event.id}" class="btn btn-outline-primary btn-sm">تفاصيل</a>
                 </div>
             </div>
@@ -451,6 +535,8 @@ function submitNewEvent() {
     const eventDate = document.getElementById('eventDate').value;
     const eventLocation = document.getElementById('eventLocation').value.trim();
     const eventDescription = document.getElementById('eventDescription').value.trim();
+    const eventOrganizer = document.getElementById('eventOrganizer').value.trim();
+    const eventImage = document.getElementById('eventImage').value;
     
     // التحقق من الحقول المطلوبة
     if (!eventName || !eventCategory || !eventDate || !eventLocation || !eventDescription) {
@@ -459,8 +545,11 @@ function submitNewEvent() {
     }
     
     // إغلاق النافذة المنبثقة
-    const modal = bootstrap.Modal.getInstance(document.getElementById('addEventModal'));
-    modal.hide();
+    const modalElement = document.getElementById('addEventModal');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) {
+        modal.hide();
+    }
     
     // إظهار رسالة نجاح
     alert('تم إرسال الفعالية بنجاح! سيتم مراجعتها من قبل فريقنا قبل النشر.');
@@ -490,8 +579,11 @@ function submitRegistration() {
     }
     
     // إغلاق النافذة المنبثقة
-    const modal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
-    modal.hide();
+    const modalElement = document.getElementById('registerModal');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) {
+        modal.hide();
+    }
     
     // زيادة عدد المسجلين
     const attendeeCount = document.getElementById('attendeeCount');
@@ -556,6 +648,18 @@ function initializeSite() {
             navbar.classList.remove('navbar-scrolled');
         }
     });
+    
+    // تحديد الصفحة الحالية وتحميل البيانات المناسبة
+    const currentPage = window.location.pathname;
+    
+    if (currentPage.includes('index.html') || currentPage.endsWith('/')) {
+        loadLatestEvents();
+    } else if (currentPage.includes('events.html')) {
+        loadEvents();
+    } else if (currentPage.includes('event.html')) {
+        loadEventDetails();
+        loadRelatedEvents();
+    }
 }
 
 // تهيئة الموقع عند تحميل الصفحة

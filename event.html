@@ -67,11 +67,13 @@
         </nav>
 
         <!-- قسم تفاصيل الفعالية -->
-        <div class="row">
-            <div class="col-lg-8">
+         <!-- الفعالية الاولى -->
+        <section id="event1" class="event-details mb-5">
+        <div class="row mb-4">
+            <div class="col-md-8">
                 <!-- صورة الفعالية -->
                 <div class="card shadow-sm mb-4">
-                    <img src="assets/img/event1.jpg" class="card-img-top rounded-top" alt="مهرجان الربيع الثقافي" id="eventImage">
+                    <img src="assets/img/event1.png" class="card-img-top rounded-top" alt="مهرجان الربيع الثقافي" id="eventImage">
                 </div>
                 
                 <!-- معلومات الفعالية -->
@@ -189,7 +191,259 @@
                     </div>
                 </div>
             </div>
-            
+          
+          </section>
+    
+            <!--الفعالية التانية -->
+        <!-- قسم تفاصيل الفعالية -->
+ <section id="event2" class="event-details mb-5">
+     <div class="row">
+            <div class="col-lg-8">
+                <!-- صورة الفعالية -->
+                <div class="card shadow-sm mb-4">
+                    <img src="assets/img/event2.jpg" class="card-img-top rounded-top" alt="ماراثون المدينة الخيري" id="eventImage">
+                </div>
+                
+                <!-- معلومات الفعالية -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="badge bg-primary mb-2" id="eventCategory">رياضة</span>
+                                <h1 class="h2 fw-bold mb-2" id="eventTitle">ماراثون المدينة الخيري</h1>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-primary" id="shareBtn">
+                                    <i class="fas fa-share-alt me-1"></i> مشاركة
+                                </button>
+                                <button class="btn btn-primary" id="addToCalendarBtn">
+                                    <i class="fas fa-calendar-plus me-1"></i> أضف للتقويم
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">التاريخ والوقت</h6>
+                                        <p class="text-muted mb-0" id="eventDate">15-20 مايو 2023، من 4:00 مساءً إلى 10:00 مساءً</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">الموقع</h6>
+                                        <p class="text-muted mb-0" id="eventLocation">حديقة المدينة المركزية، شارع الثقافة</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-ticket-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">نوع التذكرة</h6>
+                                        <p class="text-muted mb-0" id="eventTicket">مجاني - تسجيل مسبق</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">الفئة المستهدفة</h6>
+                                        <p class="text-muted mb-0" id="eventAudience">جميع الفئات العمرية</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- وصف الفعالية -->
+                        <div class="mb-5">
+                            <h4 class="mb-3">عن الفعالية</h4>
+                            <div id="eventDescription">
+                                <p>فعالية رياضية مجانيا تستهدف جميع الاعمار</p>
+                                <p>يتضمن الماراثون هذا العام:</p>
+                                <ul>
+                                    <li>مسابقات رياضية</li>
+                                    <li>العاب اولمبية</li>
+                                    <li>توزيع هدايا والبسة رياضية</li>
+                                </ul>
+                                <p>يشارك في المهرجان هذا العام أكثر من 100 رياضي وعارض من مختلف المدن، مما يجعله الحدث الرياضي الأبرز في المدينة هذا العام.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- خريطة الموقع -->
+                        <div class="mb-5">
+                            <h4 class="mb-3">موقع الفعالية</h4>
+                            <div class="map-container rounded">
+                                <div class="map-placeholder d-flex align-items-center justify-content-center">
+                                    <div class="text-center">
+                                        <i class="fas fa-map-marked-alt fa-3x text-muted mb-3"></i>
+                                        <p class="text-muted mb-0">ملعب  المدينة المركزي، شارع الثقافة</p>
+                                        <a href="#" class="btn btn-sm btn-outline-primary mt-2">
+                                            <i class="fas fa-directions me-1"></i> افتح في خرائط جوجل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- منظم الفعالية -->
+                        <div class="mb-4">
+                            <h4 class="mb-3">المنظم</h4>
+                            <div class="d-flex align-items-center">
+                                <div class="organizer-logo me-3">
+                                    <i class="fas fa-landmark fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0" id="eventOrganizer">وزارة الشباب والرياضة - إدارة الفعاليات</h5>
+                                    <p class="text-muted mb-0">منظمة غير ربحية تعنى بدعم المشهد الرياضي في المدينة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ </section> 
+
+   
+
+            <!-- الفعالية التالتة -->
+       <section id="event3" class="event-details mb-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- صورة الفعالية -->
+                <div class="card shadow-sm mb-4">
+                    <img src="assets/img/event3.jpg" class="card-img-top rounded-top" alt="حفلة اوركسترا المدينة" id="eventImage">
+                </div>
+                
+                <!-- معلومات الفعالية -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="badge bg-primary mb-2" id="eventCategory">ثقافة</span>
+                                <h1 class="h2 fw-bold mb-2" id="eventTitle">حفلة اوركسترا المدينة</h1>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-primary" id="shareBtn">
+                                    <i class="fas fa-share-alt me-1"></i> مشاركة
+                                </button>
+                                <button class="btn btn-primary" id="addToCalendarBtn">
+                                    <i class="fas fa-calendar-plus me-1"></i> أضف للتقويم
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">التاريخ والوقت</h6>
+                                        <p class="text-muted mb-0" id="eventDate">15-20 مايو 2023، من 4:00 مساءً إلى 10:00 مساءً</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">الموقع</h6>
+                                        <p class="text-muted mb-0" id="eventLocation"> دار اوبرا المدينة المركزي </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-ticket-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">نوع التذكرة</h6>
+                                        <p class="text-muted mb-0" id="eventTicket">مجاني - تسجيل مسبق</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-circle me-3">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">الفئة المستهدفة</h6>
+                                        <p class="text-muted mb-0" id="eventAudience"> فوق 20 عام</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- وصف الفعالية -->
+                        <div class="mb-5">
+                            <h4 class="mb-3">عن الفعالية</h4>
+                            <div id="eventDescription">
+                                <p>حفل اوركسترا عالمي يقام في دار الاوبرا </p>
+                                <p>يتضمن الحفل هذا العام:</p>
+                                <ul>
+                                    <li>حفلات موسيقية مع فرق وفنانين محليين</li>
+                                    <li>معزوفات عالمية</li>
+                                </ul>
+                                <p>يشارك في المهرجان هذا العام أكثر من 100 موسيقي وعارض من مختلف المجالات الثقافية، مما يجعله الحدث الثقافي الأبرز في المدينة هذا الربيع.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- خريطة الموقع -->
+                        <div class="mb-5">
+                            <h4 class="mb-3">موقع الفعالية</h4>
+                            <div class="map-container rounded">
+                                <div class="map-placeholder d-flex align-items-center justify-content-center">
+                                    <div class="text-center">
+                                        <i class="fas fa-map-marked-alt fa-3x text-muted mb-3"></i>
+                                        <p class="text-muted mb-0">دار الاوبرا المركزي</p>
+                                        <a href="#" class="btn btn-sm btn-outline-primary mt-2">
+                                            <i class="fas fa-directions me-1"></i> افتح في خرائط جوجل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- منظم الفعالية -->
+                        <div class="mb-4">
+                            <h4 class="mb-3">المنظم</h4>
+                            <div class="d-flex align-items-center">
+                                <div class="organizer-logo me-3">
+                                    <i class="fas fa-landmark fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0" id="eventOrganizer">وزارة الثقافة - إدارة الفعاليات</h5>
+                                    <p class="text-muted mb-0">منظمة غير ربحية تعنى بدعم المشهد الثقافي في المدينة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+          </section>
+
+
             <!-- الشريط الجانبي -->
             <div class="col-lg-4">
                 <!-- تسجيل الحضور -->

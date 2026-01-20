@@ -25,9 +25,10 @@
 body {
     font-family: var(--body-font);
     color: var(--dark-color);
-    background-color: #f5f7fb;
+    background-color: #7ca9ed !important;
     line-height: 1.6;
     direction: rtl;
+    padding-top: 70px; /* لحساب شريط التنقل الثابت */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -88,6 +89,11 @@ a:hover {
 .navbar-nav .nav-link.active {
     background-color: rgba(67, 97, 238, 0.1);
     color: var(--primary-color) !important;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* قسم الهيرو */
@@ -151,6 +157,11 @@ a:hover {
     top: 50%;
     transform: translateY(-50%);
     margin: 0 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
 }
 
 /* تصنيفات سريعة */
@@ -311,6 +322,10 @@ a:hover {
 
 /* تصميم متجاوب إضافي */
 @media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    
     .hero-section h1 {
         font-size: 2rem;
     }
@@ -326,9 +341,17 @@ a:hover {
     .carousel-item .col-md-6 {
         width: 100%;
     }
+    
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 576px) {
+    body {
+        padding-top: 56px;
+    }
+    
     .navbar-brand {
         font-size: 1.2rem;
     }
@@ -340,6 +363,10 @@ a:hover {
     
     .event-card .card-img-top {
         height: 180px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.8rem;
     }
 }
 
@@ -362,6 +389,7 @@ a:hover {
 .btn-outline-primary:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: white;
 }
 
 .bg-primary {
@@ -400,4 +428,82 @@ a:hover {
 .accordion-button:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+/* تخصيص Breadcrumb */
+.breadcrumb {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.breadcrumb-item.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* تخصيص Badge للفلاتر النشطة */
+#activeFilters .badge {
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#activeFilters .badge .fa-times {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#activeFilters .badge .fa-times:hover {
+    opacity: 1;
+}
+
+/* تحسين عرض الفعاليات في صفحة التفاصيل */
+#eventDescription ul {
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+#eventDescription li {
+    margin-bottom: 8px;
+}
+
+/* تحسين عرض الصور في السلايدر */
+.carousel-item img {
+    object-fit: cover;
+    height: 400px;
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+}
+
+/* تحسين عرض الفعاليات ذات الصلة */
+#relatedEvents img {
+    object-fit: cover;
+}
+
+/* تخصيص العناوين */
+.display-4, .display-5 {
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* تحسين التباعد */
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.pt-4 {
+    padding-top: 1.5rem !important;
 }
